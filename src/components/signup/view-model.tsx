@@ -2,7 +2,7 @@ import { initializeApp, getApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from 'firebase/auth'
 import React, { useState, useRef } from "react"
 export const viewModel = () => {
-    initializeApp({apiKey: "AIzaSyCo6rDk7PZZH5ln4Aoj1o-3xtPIO1788rI"})
+    initializeApp({apiKey: ""})
     const auth = getAuth(getApp()) 
     const formRef = useRef(null)
     const [name, setName] = useState("")
