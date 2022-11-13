@@ -10,11 +10,11 @@ const Main = (options: NavbarOptions) => {
                 <a className="navbar-brand">
                     Desking Time
                 </a>
-                <button className={`navbar-toggler ${toggled?'':'collapsed'}`} type="button" onClick={buttonClicked}>
+                <button className={`navbar-toggler`} type="button" onClick={buttonClicked}>
                     Menu
                     <i className="fas fa-bars"></i>
                 </button>
-                    <div className={`collapse navbar-collapse ${toggled?'show':''}`}>
+                    <div className={`navbar-collapse ${toggled?'not-hidden':''}`}>
                         <ul className="navbar-nav ms-auto py-4 py-lg-0">
                             {options.items.map(i => {
                                 return (
