@@ -7,7 +7,7 @@ const Main = () => {
                     <div className="col-md-10 col-lg-8 col-xl-7">
                         <div className="site-heading">
                             <h1>Desking Time</h1>
-                            <span className="subheading">For freelancers and remote workers</span>
+                            <span className="subheading">Working tools for <i>Homo Digitalis</i></span>
                         </div>
                     </div>
                 </div>

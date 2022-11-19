@@ -1,17 +1,38 @@
 import React from "react"
-import Navbar from '../../components/navbar/index'
-import Header from '../../components/landing-header/index'
-import { Navbaritem } from "../../components/navbar/types"
+import Navbar from '../../components/landing/navbar/index'
+import Header from '../../components/landing/header/index'
+import Content from '../../components/landing/container/index'
+import Footer from '../../components/landing/footer/index'
+import Pricing from '../../components/landing/pricing/index'
+import { ViewModel } from "./view-model"
 const Main = () => {
-    const menuItems: Navbaritem[] = [
-        {id: 1,name: "Home"},
-        {id: 2,name: "About Us"},
-        {id: 3,name: "Login"},
-    ]
+    const { getMenuItems, getPricingItems } = ViewModel()
     return (
         <React.Fragment>
-            <Navbar items={menuItems} />
+            <Navbar items={getMenuItems()} />
             <Header />
+            <Content>
+                <React.Fragment>
+                    <div className="text-center mb-5">
+                        <h2>Our plans</h2>
+                        <p>Choose the option better fits your needs</p>
+                    </div>
+                    <div className="row">
+                        {getPricingItems().map( item => (
+                            <Pricing 
+                                key={item.id}
+                                id={item.id}
+                                name={item.name}
+                                monthly={item.monthly}
+                                yearly={item.yearly}
+                                discount={item.discount}
+                                details={item.details}
+                            />
+                        ))}
+                    </div>
+                </React.Fragment>
+            </Content>
+            <Footer />
         </React.Fragment>
     )
 }

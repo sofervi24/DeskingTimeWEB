@@ -1,10 +1,25 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Landing from './pages/landing/index'
+import Home from './pages/landing/index'
+import About from './pages/landing/about'
+import Contact from './pages/landing/contact'
+import Login from './pages/auth/login'
+import Signup from './pages/auth/signup'
+import Forgot from './pages/auth/forgot'
+import Validate from './pages/auth/validate'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+
 import './assets/index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <Landing />
-  </React.StrictMode>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />}/>
+      <Route path='/about' element={<About />}/>
+      <Route path='/contact' element={<Contact />}/>
+      <Route path='/login' element={<Login />}/>
+      <Route path='/signup' element={<Signup />}/>
+      <Route path='/forgot' element={<Forgot />}/>
+      <Route path='/validate' element={<Validate />}/>
+    </Routes>
+  </BrowserRouter>
 )

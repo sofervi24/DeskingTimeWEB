@@ -1,3 +1,9 @@
+body{
+    background-color: #9da4df2c;
+}
 .ms-auto {
     margin-left: auto !important;
+}
+footer{
+    background-color: white;
 }

@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom'
 import ViewModel from './view-model'
 import {NavbarOptions} from './types'
 import './assets/index.css'
@@ -14,14 +15,12 @@ const Main = (options: NavbarOptions) => {
                     Menu
                     <i className="fas fa-bars"></i>
                 </button>
-                    <div className={`navbar-collapse ${toggled?'not-hidden':''}`}>
+                    <div className={`navbar-collapse ${toggled?`not-hidden h-${options.items.length}`:''}`}>
                         <ul className="navbar-nav ms-auto py-4 py-lg-0">
                             {options.items.map(i => {
                                 return (
                                     <li key={i.id} className="nav-item">
-                                        <a className="nav-link px-lg-3 py-3 py-lg-4">
-                                            {i.name}
-                                        </a>
+                                        <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path}>{i.name}</Link>                     
                                     </li>
                                 )  
                             })}

@@ -28,12 +28,29 @@
     height: 0;
     transition: height 0.2s ease-in-out;
 }
-#mainNav .navbar-collapse.not-hidden {
-    height: 12em; /*4em per menu item*/
+#mainNav .navbar-collapse.not-hidden.h-1 {
+    height: 4em; 
+}
+#mainNav .navbar-collapse.not-hidden.h-2 {
+    height: 8em; 
+}
+#mainNav .navbar-collapse.not-hidden.h-3 {
+    height: 12em; 
+}
+#mainNav .navbar-collapse.not-hidden.h-4 {
+    height: 16em; 
+}
+#mainNav .navbar-collapse.not-hidden.h-5 {
+    height: 20em; 
 }
 @media (min-width: 992px) {
     #mainNav .navbar-collapse,
-    #mainNav .navbar-collapse.not-hidden {
+    #mainNav .navbar-collapse.not-hidden,
+    #mainNav .navbar-collapse.not-hidden.h-1,
+    #mainNav .navbar-collapse.not-hidden.h-2,
+    #mainNav .navbar-collapse.not-hidden.h-3,
+    #mainNav .navbar-collapse.not-hidden.h-4,
+    #mainNav .navbar-collapse.not-hidden.h-5 {
         height: 100%;
     }
     #mainNav {
