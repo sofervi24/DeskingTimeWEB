@@ -22,7 +22,7 @@ const Main = (item: PricingItem) => {
                     </ul>
                 </div>
                 <div className="card-footer text-center">
-                    <button className="btn btn-sm btn-primary">More Info</button>
+                    <button className="btn btn-sm btn-primary">Coming soon</button>
                 </div>
             </div>
         </div>
