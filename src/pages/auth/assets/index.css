@@ -14,7 +14,7 @@
     border-radius: 3px;
 }
 .card-auth .form{
-    height: 200px;
+    height: 280px;
 }
 .card-auth .form input:focus{
     box-shadow: none;
