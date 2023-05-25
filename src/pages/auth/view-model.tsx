@@ -225,13 +225,12 @@ export const ForgotViewModel = () => {
         setLoading(true)
         user.recoverPassword(email)
             .then(resp => {
-                console.log('1 -> ',resp)
                 if(resp === true){
+                    setEmail('')
                     setSuccess('Done! Check your email...')
                 }
             })
             .catch(message => {
-                console.log('1 -> ',message)
                 setError(message)
             })
             .finally( () => {

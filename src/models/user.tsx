@@ -25,12 +25,10 @@ export class User{
             })
             .then(resp => resp.json())
             .then(resp => {
-                console.log(resp)
                 if(resp.error) return resolve(false)
                 return resolve(true)
             })
             .catch(e => {
-                console.log("e",e)
                 resolve(false)                
             })
         })
