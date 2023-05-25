@@ -6,6 +6,7 @@ import Login from './pages/auth/login'
 import Signup from './pages/auth/signup'
 import Forgot from './pages/auth/forgot'
 import Validate from './pages/auth/validate'
+import Dashboard from './pages/dashboard/index'
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 
 import './assets/index.css'
@@ -20,6 +21,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <Route path='/signup' element={<Signup />}/>
       <Route path='/forgot' element={<Forgot />}/>
       <Route path='/validate' element={<Validate />}/>
+      <Route path='/dashboard' element={<Dashboard />}/>
     </Routes>
   </BrowserRouter>
 )

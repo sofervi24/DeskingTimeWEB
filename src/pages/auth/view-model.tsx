@@ -15,11 +15,10 @@ export const SignUpViewModel = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect( () => {
-        console.log("SignUpViewModel::useEffect")
         user.validate()
         .then(resp => {
             if(resp === true){
-                navigate('/')
+                navigate('/dashboard')
             }
         })
     },[])
@@ -69,7 +68,9 @@ export const SignUpViewModel = () => {
         setLoading(true)
         user.signUp(firstName,lastName,email,password)
             .then(resp => {
-                //:HERE
+                if (resp === true){
+                    navigate('/dashboard')
+                }
             })
             .catch(message => setError(message))
             .finally( () => {
@@ -120,11 +121,10 @@ export const LoginViewModel = () => {
     const [loading, setLoading] = useState(false)
 
     useEffect( () => {
-        console.log("LoginViewModel::useEffect")
         user.validate()
         .then(resp => {
             if(resp === true){
-                navigate('/')
+                navigate('/dashboard')
             }
         })
     },[])
@@ -155,7 +155,9 @@ export const LoginViewModel = () => {
         setLoading(true)
         user.login(email,password)
             .then(resp => {
-                //:HERE
+                if(resp === true){
+                    navigate('/dashboard')
+                }
             })
             .catch(message => setError(message))
             .finally( () => {

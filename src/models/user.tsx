@@ -5,6 +5,7 @@ export class User{
     private last_name:String = ''
     private email:String = ''
     private token:String = ''
+
     constructor(){
         this.id = localStorage.getItem('user_id') ?? ''
         this.first_name = localStorage.getItem('user_first_name') ?? ''
@@ -15,7 +16,7 @@ export class User{
 
     validate():Promise<Boolean|String>{
         const my = this
-        return new Promise( (resolve, reject) => {
+        return new Promise( (resolve) => {
             fetch(`${this.baseUrl}auth/validate`,{
                 method: 'POST',
                 headers: {
@@ -25,12 +26,13 @@ export class User{
             .then(resp => resp.json())
             .then(resp => {
                 console.log(resp)
-                if(resp.error){
-                    return reject(resp.error)
-                }
+                if(resp.error) return resolve(false)
                 return resolve(true)
             })
-            .catch(e => reject(e.error))
+            .catch(e => {
+                console.log("e",e)
+                resolve(false)                
+            })
         })
     }
 
@@ -74,6 +76,10 @@ export class User{
             })
             .catch(e => reject(e.error))
         })
+    }
+
+    logout(){
+        this.clearInfo()
     }
 
     private updateInfo(data: {id:String, first_name:String, last_name:String, email:String, token:String}){

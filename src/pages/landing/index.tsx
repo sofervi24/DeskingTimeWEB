@@ -6,7 +6,10 @@ import Footer from '../../components/landing/footer/index'
 import Pricing from '../../components/landing/pricing/index'
 import { ViewModel } from "./view-model"
 const Main = () => {
-    const { getMenuItems, getPricingItems } = ViewModel()
+    const { 
+        getMenuItems, 
+        getPricingItems 
+    } = ViewModel()
     return (
         <React.Fragment>
             <Navbar items={getMenuItems()} />

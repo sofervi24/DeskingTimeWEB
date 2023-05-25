@@ -1,10 +1,14 @@
 import {Link} from 'react-router-dom'
 import ViewModel from './view-model'
-import {NavbarOptions} from './types'
+import {NavType, NavbarOptions} from './types'
 import './assets/index.css'
 
 const Main = (options: NavbarOptions) => {
-    const {toggled, buttonClicked} = ViewModel()
+    const {
+        toggled, 
+        logged,
+        buttonClicked
+    } = ViewModel()
     return (
         <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div className="container px-4 px-lg-5">
@@ -20,7 +24,15 @@ const Main = (options: NavbarOptions) => {
                             {options.items.map(i => {
                                 return (
                                     <li key={i.id} className="nav-item">
-                                        <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path}>{i.name}</Link>                     
+                                        {i.type == NavType.itemLink && 
+                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
+                                        }
+                                        {i.type == NavType.actionLogin && !logged &&
+                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
+                                        }
+                                        {i.type == NavType.itemLinkDashboard && logged &&
+                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
+                                        }
                                     </li>
                                 )  
                             })}

@@ -1,13 +1,14 @@
-import { Navbaritem } from "../../components/landing/navbar/types"
+import { NavType, Navbaritem } from "../../components/landing/navbar/types"
 import { PricingItem } from '../../components/landing/pricing/types'
 
 export const ViewModel = () => {
     const getMenuItems = ():Navbaritem[] => {
         const items:Navbaritem[] = [
-            {id: 1,name: "Home", path: "/"},
-            {id: 2,name: "About", path: "/about"},
-            {id: 3,name: "Contact", path: "/contact"},
-            {id: 4,name: "Login", path: "/login"},
+            {id: 1,name: "Home", path: "/", type: NavType.itemLink},
+            {id: 2,name: "About", path: "/about", type: NavType.itemLink},
+            {id: 3,name: "Contact", path: "/contact", type: NavType.itemLink},
+            {id: 4,name: "Login", path: "/login", type: NavType.actionLogin},
+            {id: 5,name: "Dashboard", path: "/dashboard", type: NavType.itemLinkDashboard},
         ]
         return items
     }
