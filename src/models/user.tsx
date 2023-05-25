@@ -82,6 +82,28 @@ export class User{
         this.clearInfo()
     }
 
+    recoverPassword(email: String): Promise<Boolean | String>{
+        return new Promise( (resolve, reject) => {
+            fetch(`${this.baseUrl}auth/forgot`,{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email}),
+            })
+            .then(resp => resp.json())
+            .then(resp => {
+                if(resp.error){
+                    return reject(resp.error)
+                }
+                return resolve(true)
+            })
+            .catch(e => reject(e.error))
+        })
+    }
+
+
+
     private updateInfo(data: {id:String, first_name:String, last_name:String, email:String, token:String}){
         this.id = data.id
         this.first_name = data.first_name

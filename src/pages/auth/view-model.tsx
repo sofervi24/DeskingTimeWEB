@@ -63,6 +63,7 @@ export const SignUpViewModel = () => {
         setError('')
         return true
     }
+
     const signup = () => {
         if(!validateInputs()) return
         setLoading(true)
@@ -180,5 +181,75 @@ export const LoginViewModel = () => {
         updateEmail,
         updatePassword,
         login
+   }
+}
+
+export const ForgotViewModel = () => {
+
+    const user: User = new User()
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
+    const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [loading, setLoading] = useState(false)
+
+    useEffect( () => {
+        user.validate()
+        .then(resp => {
+            if(resp === true){
+                navigate('/dashboard')
+            }
+        })
+    },[])
+
+
+    const validateEmail = (email: String):Boolean => {
+        return emailValidator.validate(email.toString())
+    }
+
+    const validateInputs = ():Boolean => {
+        if(email.length == 0){
+            setError('Email is required')
+            return false
+        }
+        if(!validateEmail(email)){
+            setError('Not a valid email')
+            return false
+        }
+        return true
+    }
+
+
+    const recover = () => {
+        if(!validateInputs()) return
+        setLoading(true)
+        user.recoverPassword(email)
+            .then(resp => {
+                console.log('1 -> ',resp)
+                if(resp === true){
+                    setSuccess('Done! Check your email...')
+                }
+            })
+            .catch(message => {
+                console.log('1 -> ',message)
+                setError(message)
+            })
+            .finally( () => {
+                setLoading(false)
+            })
+    }
+
+    const updateEmail = (e:ChangeEvent<HTMLInputElement>) => {
+        setError('')
+        setSuccess('')
+        setEmail(e.target.value.trim())
+    }
+
+    return {
+        loading,
+        error,
+        success,
+        updateEmail,
+        recover
    }
 }

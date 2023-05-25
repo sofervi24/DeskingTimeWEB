@@ -35,6 +35,7 @@ const Main = () => {
                                     <input type="email" className="form-control" placeholder="Email" onChange={e => updateEmail(e)} disabled={loading}/>
                                     <input type="password" className="form-control" placeholder="Password" onChange={e => updatePassword(e)} disabled={loading}/>
                                     {error && <span className='text-danger small'>{error}</span>}
+                                    <Link to={'/forgot'} className="small">Forgot password?</Link>
                                 </div>                        
                             </div>
                         </div>

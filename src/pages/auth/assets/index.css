@@ -28,3 +28,7 @@
 .btl{
     border-top-left-radius: 5px !important;
 }
+.forgot-header{
+    background-color: #007BFF;
+    color: white;
+}
