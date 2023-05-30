@@ -1,13 +1,11 @@
 export enum NavType{
-    itemLink = 1,
-    actionLogin = 2,
-    actionLoggout = 3,
-    itemLinkDashboard = 4
+    internalLink = 1,
+    externallLink = 2,
 }
 export type Navbaritem = {
     id: number
     name: string
-    path?: string
+    path: string
     type: NavType
 }
 export type NavbarOptions = {

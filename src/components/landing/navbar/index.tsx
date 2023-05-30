@@ -6,7 +6,6 @@ import './assets/index.css'
 const Main = (options: NavbarOptions) => {
     const {
         toggled, 
-        logged,
         buttonClicked
     } = ViewModel()
     return (
@@ -24,14 +23,11 @@ const Main = (options: NavbarOptions) => {
                             {options.items.map(i => {
                                 return (
                                     <li key={i.id} className="nav-item">
-                                        {i.type == NavType.itemLink && 
-                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
+                                        {i.type == NavType.internalLink && 
+                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path}>{i.name}</Link>                     
                                         }
-                                        {i.type == NavType.actionLogin && !logged &&
-                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
-                                        }
-                                        {i.type == NavType.itemLinkDashboard && logged &&
-                                            <Link className="nav-link px-lg-3 py-3 py-lg-4" to={i.path ?? '/'}>{i.name}</Link>                     
+                                        {i.type == NavType.externallLink && 
+                                            <a className="nav-link px-lg-3 py-3 py-lg-4" href={i.path}>{i.name}</a>
                                         }
                                     </li>
                                 )  
